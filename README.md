@@ -1,4 +1,10 @@
-# installing npm/node
+#Itoo's thing
+
+Welcome one and all to the glorious world of the thing for that guy for that other thing that he needs this thing for. Below is a relatively hand-holdy and detailed version of what you'll need to do to run this thing on your thing to show those people that want to see the thing on that day. 
+enjoy.
+also shameless plug, go to ashrant.com for your weekly dose of memes whenever I decide to edit that thing
+
+## installing npm/node
 
 You will need to download a package manager called yarn to build and another one called npm (basically just node) to install the packages. sounds very scary, but it isnt, i promise
 
@@ -10,7 +16,7 @@ npm install
 ``` 
 if it works skip this step, if not go here https://nodejs.org/en/ and just download. then you'll have npm and node, and then repeat the npm install
 
-#installing brew and yarn
+## installing brew and yarn
 
 next youre going to want to install yarn, and you have to use another package manager to do that. homebrew. 
 
@@ -24,7 +30,7 @@ brew install yarn
 ```
 now that should download yarn and you're almost done
 
-#FINALLY running this shit
+## FINALLY running this shit
 Finally, we build the project. go to the folder, and type this shit into your command line
 ```bash
 yarn build
