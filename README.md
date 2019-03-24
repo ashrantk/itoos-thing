@@ -1,4 +1,4 @@
-#Itoo's thing
+# Itoo's thing
 
 Welcome one and all to the glorious world of the thing for that guy for that other thing that he needs this thing for. Below is a relatively hand-holdy and detailed version of what you'll need to do to run this thing on your thing to show those people that want to see the thing on that day. 
 enjoy.
