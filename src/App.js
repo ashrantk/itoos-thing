@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import styled from 'styled-components';
-//import { FlippyCardContainerR, FlippyCardContainerG, FlippyCardContainerB, FlippyCardContainerY } from './flippyCardcontainer';
+import FlippyCardContainer from './flippyCardContainer';
 
 //DO NOT TOUCH
 const ButtonsContainer = styled.div`
@@ -46,7 +46,11 @@ const MiddleButtons = styled.div`
 const ColourButton = styled.button`
   text-align: center;
   position: relative;
-  background: rgba(${props => props.buttonColorR}, ${props => props.buttonColorG}, ${props => props.buttonColorB}, ${props => props.editOpacity * 0.075 + 0.25});
+  background: 
+    rgba(${props => props.buttonColorR}, 
+      ${props => props.buttonColorG}, 
+      ${props => props.buttonColorB}, 
+      ${props => props.editOpacity * 0.075 + 0.25});
   width: 100%;
   padding: 30px 30px;
   &::before{
@@ -65,6 +69,7 @@ class App extends Component {
     yellowO:0,
     blueO:0,
     pageSwitcherIndex: 0,
+    titles: ['title1', 'title2', 'title3', 'title4'],
   }
 
   //Handlers for darkening the cards and setting state
@@ -96,6 +101,8 @@ class App extends Component {
     //Decides whether you see card content or buttons
     let pager;
     if (this.state.pageSwitcherIndex === 0) {
+      //Modify the content - TEXT# shit
+      //I'm assuming you want actual text on the buttons
       pager = 
       <ButtonsContainer>
         <ButtonContainer>
@@ -106,6 +113,7 @@ class App extends Component {
             editOpacity={this.state.redO} 
             onClick={this.onClickRed}
           >
+{/*---------------CHANGE THIS---------------*/}
             <Content>TEXT #1</Content>
           </ColourButton>
           <MiddleButtons>
@@ -114,16 +122,20 @@ class App extends Component {
               buttonColorG={255} 
               buttonColorB={0} 
               editOpacity={this.state.greenO} 
-              onClick={this.onClickGreen}>
-            <Content>TEXT #2</Content>
+              onClick={this.onClickGreen}
+            >
+{/*---------------CHANGE THIS---------------*/}
+              <Content>TEXT #2</Content>
             </ColourButton>
             <ColourButton 
               buttonColorR={255} 
               buttonColorG={255} 
               buttonColorB={0} 
               editOpacity={this.state.yellowO} 
-              onClick={this.onClickYellow}>
-            <Content>TEXT #3</Content>
+              onClick={this.onClickYellow}
+            >
+{/*---------------CHANGE THIS---------------*/}
+              <Content>TEXT #3</Content>
             </ColourButton>
           </MiddleButtons>
           <ColourButton 
@@ -131,23 +143,20 @@ class App extends Component {
             buttonColorG={0} 
             buttonColorB={255} 
             editOpacity={this.state.blueO} 
-            onClick={this.onClickBlue}>
+            onClick={this.onClickBlue}
+          >
+{/*---------------CHANGE THIS---------------*/}
             <Content>TEXT #4</Content>
           </ColourButton>
         </ButtonContainer>
       </ButtonsContainer>;
-    } else if (this.state.pageSwitcherIndex === 1) {
+    } else {
       pager = 
-        <div>
-          <button onClick={this.backButtonClick}></button>
-          HELLO
-        </div>;//<FlippyCardContainerR/>;
-    } else if (this.state.pageSwitcherIndex === 2) {
-      pager = <div>ALOHA</div>;//<FlippyCardContainerG/>;
-    } else if (this.state.pageSwitcherIndex === 3) {
-      pager = <div>SHALOM</div>;//<FlippyCardContainerB/>;
-    } else if (this.state.pageSwitcherIndex === 4) {
-      pager = <div>NAMASTE</div>;//<FlippyCardContainerY/>;
+      <FlippyCardContainer 
+        cardSelector={this.state.pageSwitcherIndex} 
+        returnButton={this.backButtonClick}
+        pageTitle={this.state.titles}
+      />
     }
     return (
       <div className="App">
@@ -155,12 +164,17 @@ class App extends Component {
           The JSON.stringify just lets you see the state variables in the background. 
           comment out the line, it's not necessary, but it does show you the number of clicks
           so you get a relative sclae of how much darker the button gets
+
+          UNCOMMENT IF YOU WANT TO SEE HOW IT WORKS
         */}
+        {/*
         <pre>
           <code>
             {JSON.stringify(this.state, undefined, 2)}
           </code>
         </pre>
+        */}
+
         {/*
           pager is you content switcher for the page. literally the only important line, dont delete
           delete anything else, but if this goes you will see NOTHING
